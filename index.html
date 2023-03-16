@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png" />
+
+        <title>Frontend Mentor | [Challenge Name Here]</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <div class="container">
+            <h2>Our Pricing</h2>
+            <div>
+                <label class="switch">
+                    <span class="switch-desc left">Annually</span>
+                    <input id="profile-toggle" checked type="checkbox" />
+                    <span class="slider round"></span>
+                    <span class="switch-desc right">Monthly</span>
+                </label>
+            </div>
+            <section class="card-section">
+                <article class="card-side left">
+                    <h3 class="title">Basic</h3>
+                    <span class="price"> &dollar;<span class="number">199.99</span class="number"></span>
+                    <p class="card-detail">500 GB Storage</p>
+                    <p class="card-detail">2 Users Allowed</p>
+                    <p class="card-detail">Send up to 3 GB</p>
+                    <a class="card-btn">Learn More</a>
+                </article>
+                <article class="card-middle">
+                    <h3 class="title">Professional</h3>
+                    <span class="price"> &dollar;<span class="number">249.99</span class="number"></span>
+                    <p class="card-detail">1 TB Storage</p>
+                    <p class="card-detail">5 Users Allowed</p>
+                    <p class="card-detail">Send up to 10 GB</p>
+                    <a class="card-btn">Learn More</a>
+                </article>
+                <article class="card-side right">
+                    <h3 class="title">Master</h3>
+                    <span class="price"> &dollar;<span class="number">399.99</span class="number"></span>
+                    <p class="card-detail">2 TB Storage</p>
+                    <p class="card-detail">10 Users Allowed</p>
+                    <p class="card-detail">Send up to 20 GB</p>
+                    <a class="card-btn">Learn More</a>
+                </article>
+            </section>
+        </div>
+        <script>
+            var getPrice = document.getElementsByClassName("number");
+            function changeStatus() {
+                if (!this.checked) {
+                    getPrice[0].innerHTML = "19.99";
+                    getPrice[1].innerHTML = "24.99";
+                    getPrice[2].innerHTML = "39.99";
+                } else {
+                    getPrice[0].innerHTML = "199.99";
+                    getPrice[1].innerHTML = "249.99";
+                    getPrice[2].innerHTML = "399.99";
+                }
+            }
+            var button = document.querySelector("#profile-toggle").addEventListener("change", changeStatus);
+            console.log(button);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,238 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
+:root {
+    --gradient: linear-gradient(hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    --very-light-grayish-blue: hsl(240, 78%, 98%);
+    --light-grayish-blue: hsl(234, 14%, 74%);
+    --grayish-blue: hsl(233, 13%, 49%);
+    --dark-grayish-blue: hsl(232, 13%, 33%);
+}
+html {
+    font-family: "Montserrat", sans-serif;
+    font-size: 62.5%;
+}
+*,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-size: 1.5rem;
+    background-color: var(--very-light-grayish-blue);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5rem;
+    height: auto;
+    min-height: 100vh;
+    background: url(./images/bg-top.svg) no-repeat 100% 0%, url(./images/bg-bottom.svg) no-repeat 0% 100%;
+}
+
+h2 {
+    margin-top: 5rem;
+    color: var(--grayish-blue);
+    font-size: 3.2rem;
+}
+
+.switch-desc {
+    color: var(--light-grayish-blue);
+    position: absolute;
+    top: 50%;
+}
+.switch-desc.left {
+    transform: translate(-100px, -50%);
+}
+.switch-desc.right {
+    transform: translate(90px, -50%);
+}
+
+/* switch */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 32px;
+}
+
+/* hide default checkbox */
+.switch input {
+    display: none;
+}
+
+/* slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient);
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(2px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/* Cards */
+.card-section {
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    width: 100%;
+    margin-bottom: 10rem;
+}
+
+.price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    font-size: 4rem;
+    gap: 5px;
+}
+
+.price .number {
+    font-size: 7.2rem;
+}
+
+.card-detail {
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--light-grayish-blue);
+}
+.card-detail:nth-of-type(1) {
+    margin-top: 2rem;
+    border-top: 1px solid var(--light-grayish-blue);
+}
+
+.card-middle {
+    color: #ffffff;
+    background: var(--gradient);
+    text-align: center;
+    padding: 5.5rem 3rem;
+    height: fit-content;
+    border-radius: 10px;
+    width: 33.33%;
+    box-shadow: 0 18px 20px 13px hsl(236, 72%, 79%, 0.2);
+}
+
+.card-middle .card-btn {
+    display: block;
+    color: hsl(237, 63%, 64%);
+    background-color: #ffffff;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.card-middle .card-btn:hover {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+}
+
+.card-side {
+    text-align: center;
+    padding: 3rem 3rem;
+    background-color: #ffffff;
+    border-radius: 10px;
+    height: fit-content;
+    width: 33.33%;
+}
+
+.card-side .price {
+    color: var(--dark-grayish-blue);
+}
+
+.card-side .title,
+.card-side .card-detail {
+    color: var(--grayish-blue);
+}
+
+.card-side .card-btn {
+    margin-top: 2rem;
+    display: block;
+    color: #ffffff;
+    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    border-radius: 5px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.5s;
+}
+
+.card-side .card-btn:hover {
+    color: hsl(237, 63%, 64%);
+    border: 1px solid hsl(237, 63%, 64%);
+    background: none;
+}
+
+.card-side.left {
+    box-shadow: 0 18px 20px 13px hsl(236, 72%, 79%, 0.2);
+}
+
+.card-side.right {
+    box-shadow: 0 18px 20px 13px hsl(236, 72%, 79%, 0.2);
+}
+
+@media screen and (max-width: 376px) {
+    .container {
+        background: none;
+        height: auto;
+        position: relative;
+        overscroll-behavior: none;
+        overflow: hidden;
+    }
+    .container::before {
+        position: absolute;
+        display: inline-block;
+        height: 658px;
+        width: 100%;
+        top: 0;
+        left: 0;
+        transform: translate(calc(50% + 5px), -30px);
+        content: "";
+        background: url(./images/bg-top.svg) no-repeat;
+        z-index: -1;
+        overflow: hidden;
+    }
+    .card-section {
+        flex-direction: column;
+    }
+    .card-middle,
+    .card-side {
+        width: 90%;
+    }
+    .card-side {
+        margin: 3rem 0;
+    }
+}
